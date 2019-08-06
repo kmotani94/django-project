@@ -5,12 +5,13 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("HOME PAGE")
+    dict = {'templateVariable': 'This is Jinja Variable'}
+    return render(request, 'home/index.html', context=dict)
 
 
 def about(request):
-    return HttpResponse("ABOUT PAGE")
+    return render(request, 'about/index.html', context=None)
 
 
-def gallery(response):
-    return HttpResponse("GALLERY PAGE")
+def gallery(request):
+    return render(request, 'gallery/index.html', context=None)
