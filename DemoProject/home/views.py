@@ -6,12 +6,15 @@ from django.http import HttpResponse
 
 def home(request):
     dict = {'templateVariable': 'This is Jinja Variable'}
-    return render(request, 'home/index.html', context=dict)
+    context = {"home_page": "active"}  # new info here
+    return render(request, 'home/home.html', context)
 
 
 def about(request):
-    return render(request, 'about/index.html', context=None)
+    context = {"about_page": "active"}  # new info here
+    return render(request, 'home/about.html', context)
 
 
 def gallery(request):
-    return render(request, 'gallery/index.html', context=None)
+    context = {"gallery_page": "active"}  # new info here
+    return render(request, 'home/gallery.html', context)

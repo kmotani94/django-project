@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+{% extends "home/layouts/base.html" %}
 {% load staticfiles %}
 
-<html>
+{% block content %}
 
 <head>
     <link rel="stylesheet" href="{% static 'home/home.css' %}">
     <title>HOME PAGE</title>
 </head>
 
-<body>
-    The content of HOME PAGE
+<body class="home">
     <img src="{% static 'home/python.png' %}" />
     <!--<p>{{ templateVariable }}</p>-->
     <p>List of Languages:</p>
@@ -21,4 +20,4 @@
     </ul>
 </body>
 
-</html>
+{% endblock %}
