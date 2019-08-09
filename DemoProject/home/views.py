@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 from . import forms
+from .models import User
+from .serializers import LoginSerializer
+
 # Create your views here.
 
 
@@ -29,3 +36,9 @@ def signUp(request):
             form.save()
     context = {"signup_page": "active", "signup_form": form}  # new info here
     return render(request, 'home/signup.html', context)
+
+class LoginList(APIView):
+    def get(self, request):
+        values = User.objects.all()
+        serializer = LoginSerializer(values, many=True)
+        return Response(serializer.data)
